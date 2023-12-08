@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update prodcut info</title>
+</head>
+<body>
+    <form action="#" th:action="@{/admin/update_outcome/}+${prod.getId()}" th:object="${prod}" method="GET">
+        <p>Product id: <span th:text="*{id}"></span></p><br>
+        <p>Product code: <input type="text" th:field="*{product_code}"></p><br>
+        <p>Brand<input type="text" th:field="*{brand}"></p><br>
+        <p>quantity<input type="text" th:field="*{quantity}"></p><br>
+        <p>unit price<input type="text" th:field="*{unit_price}"></p><br>
+        <input type="submit">
+    </form>
+    <br> <div th:replace="/fragments/general.html :: logout"></div>
+
+    <div th:replace="/fragments/general.html :: footer"> </div>
+
+</body>
+</html>

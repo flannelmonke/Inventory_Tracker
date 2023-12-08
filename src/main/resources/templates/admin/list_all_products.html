@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of all products</title>
+    <div th:replace="/fragments/general.html :: styles"></div>
+</head>
+<body>
+    <p>WANT TO PERFORM A SEARCH? GO AHEAD ->
+        <form action="/admin/apply_filters">
+            <input type="text" id="filter" name="filter" class="filter">
+            <input type="submit">
+        </form>
+    </p>
+    <table>
+        <tr>
+            <th>PRODUCT ID</th>
+            <th>Product code</th>
+            <th>Product brand</th>
+            <th>quantity in hand</th>
+            <th>unit price</th>
+        </tr>
+        <tr th:each="prod, iterStat:${products}">
+            <td hidden th:text="${iterStat.count}"></td>
+            <td th:text="${prod.id}"></td>
+            <td th:text="${prod.product_code}"></td>
+            <td th:text="${prod.brand}"></td>
+            <td th:text="${prod.quantity}"></td>
+            <td th:text="${prod.unit_price}"></td>
+            <td><a th:href="@{/admin/delete_product_info/}+${prod.getId()}">DELETE?</a></td>
+            <td><a th:href="@{/admin/update_product_info/}+${iterStat.count}">EDIT!!</a></td>
+        </tr>
+    </table>
+    <br> <div th:replace="/fragments/general.html :: logout"></div>
+    <div th:replace="/fragments/general.html :: footer"> </div>
+</body>
+</html>

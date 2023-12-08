@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <div th:fragment="styles">
+        <link rel="stylesheet" href="/src/main/resources/static/styles.css">
+    </div>
+</head>
+<body>
+    <div th:fragment="logout" class="logout" sec:authorize="isAuthenticated()">
+        <br>
+        <form action="#" th:action="@{/logout}" method="post">
+            <input type="submit" value="Logout" />
+        </form>
+    </div>
+    <div th:fragment="footer">
+        <footer>
+            <br><br>
+            <p>
+                STUDENT FUTA <br>
+                STUDENT NAME: Ahmad-Khalil Naji <br>
+                STUDENT ID: 991678927 <br>
+                GOT LOST again??<a href="/index">BACK TO HOME!??</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

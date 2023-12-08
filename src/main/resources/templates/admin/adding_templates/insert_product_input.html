@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert product</title>
+</head>
+<body>
+    <p>PUT INFORMATION HERE</p><br>
+    <form action="#" th:action="@{/admin/insert_outcome}" th:object="${product}" method="get">
+        <p>product code <input type="text" th:field="*{product_code}"></p><br>
+        <p>product brand <input type="text" th:field="*{brand}"></p><br>
+        <p>quantity <input type="text" th:field="*{quantity}"></p><br>
+        <p>unit price <input type="text" th:field="*{unit_price}"></p>
+        <input type="submit">
+    </form>
+    <br> <div th:replace="/fragments/general.html :: logout"></div>
+<br>
+    <div th:replace="/fragments/general.html :: footer"> </div>
+
+</body>
+</html>
